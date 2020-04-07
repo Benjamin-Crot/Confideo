@@ -11,12 +11,18 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
+        <% if Profile.exists?(user_id: current_user.id) %>
+          <li class="nav-item">
+            <%= link_to "Dashboard", profile_path(current_user.profile), class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item active">
+            <%= link_to "Home", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Messages", "#", class: "nav-link" %>
+          </li>
+        <% end %>
 <!--         <li class="nav-item dropdown">
  -->          <%#= cl_image_tag current_user.photo.key, crop: :thumb, gravity: :face, width: 50, height: 50,class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
 
