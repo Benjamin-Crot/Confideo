@@ -1,0 +1,16 @@
+<div class = "profile_form">
+  <h2>Votre métier</h2>
+
+  <%= simple_form_for @profile do |f| %>
+
+    <div class="form-inputs">
+      <%= f.input :profession, required: true %>
+      <%= f.input :description, required: true %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Enregistrer", class: "btn btn-primary mb-4" %>
+    </div>
+  <% end %>
+
+</div>
