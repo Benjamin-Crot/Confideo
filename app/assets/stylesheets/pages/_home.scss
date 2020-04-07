@@ -1,1 +1,11 @@
-// Specific CSS for your home-page
+.entete {
+  text-align: center;
+}
+.homecategory {
+justify-content: space-between;
+display: flex;
+margin: auto;
+}
+.coachinghome {
+  transform: translate(211px, 74px);
+}
