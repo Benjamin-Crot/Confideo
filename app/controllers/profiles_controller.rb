@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
     @profile.user = current_user
 
     if @profile.save
-      redirect_to profile_path(@profile)
+      redirect_to dashboard_profile_path(@profile)
     else
       render :new
     end
@@ -16,6 +16,12 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find(params[:id])
+    @user = User.find(@profile.user_id)
+  end
+
+  def dashboard
+    @profile = Profile.find(params[:id])
+    @user = User.find(@profile.user_id)
   end
 
   private
