@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AvaibilitieTest < ActiveSupport::TestCase
+class AvailabilityTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

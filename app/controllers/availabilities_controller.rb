@@ -1,5 +1,5 @@
-class AvaibilitiesController < ApplicationController
-   skip_after_action :verify_policy_scoped, only: :index
+class AvailabilitiesController < ApplicationController
+   # skip_after_action :verify_policy_scoped, only: :index
 
   def index
     @availabilities = current_user.availabilities
@@ -24,7 +24,5 @@ class AvaibilitiesController < ApplicationController
   def availability_params
     params.require(:availability).permit(:week_day, :breakfast, :lunch, :afterwork)
   end
-
-end
 
 end
