@@ -27,3 +27,26 @@
     margin-bottom: 2%;
   }
 }
+
+.form-banner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-query {
+  flex-grow: 1;
+  width: 100px;
+}
+
+.form-submit {
+background-color: red;
+transform: translate(-426px, 0px);
+}
+
+
+
+.form-control {
+  width: 700px;
+  margin: auto;
+}

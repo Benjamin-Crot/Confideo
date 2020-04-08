@@ -4,8 +4,23 @@
   <p></p>
 </div>
 
-<input type="text" class="seaedhhome">
 
+  <div class="form-banner">
+    <div class="form-query">
+      <%= form_tag @user_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Trouvez le professionnel idéal"
+      %>
+    </div>
+    <div class="form-submit">
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+    </div>
+  </div>
+<br>
+<br>
 
 <div class="cards">
       <%= image_tag 'index.jpg' %>
@@ -13,13 +28,6 @@
       <%= image_tag 'video2.jpg' %>
 </div>
 
-  <div class="coachinghome">
-    <h5>Coaching</h5>
-  </div>
-  <div class="sporthome">
-    <h5>Sport</h5>
-  </div>
-  <div class= "mockuphome">
-    <h5>Mockups</h5>
-  </div>
+
+
 

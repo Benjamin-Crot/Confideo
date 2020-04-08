@@ -3,11 +3,12 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   height: 300px;
+  margin-top: 100px
 }
 
 .cards img {
-  width: 250x;
-  height: 350px;
+  width: 180x;
+  height: 280px;
 }
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
