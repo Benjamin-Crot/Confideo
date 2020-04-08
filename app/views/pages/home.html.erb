@@ -7,12 +7,15 @@
 <br>
 <br>
 
-<div class="form-banner">
+
+
+  <div class="form-banner">
     <div class="form-query">
+      <%= form_tag @user_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
-        placeholder: "Trouvez un professionnel"
+        placeholder: "Trouvez le professionnel idéal"
       %>
     </div>
     <div class="form-submit">
@@ -23,6 +26,9 @@
 <br>
 <br>
 <br>
+    <% end %>
+    </div>
+  </div>
 <br>
 <br>
 
@@ -31,4 +37,8 @@
       <%= image_tag 'yoga.jpg' %>
       <%= image_tag 'video2.jpg' %>
 </div>
+
+
+
+
 
