@@ -3,23 +3,32 @@
   <p> Prenez rdv avec un professionnel à distance </p>
   <p></p>
 </div>
+<br>
+<br>
+<br>
 
-<input type="text" class="seaedhhome">
-
+<div class="form-banner">
+    <div class="form-query">
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Trouvez un professionnel"
+      %>
+    </div>
+    <div class="form-submit">
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <div class="cards">
       <%= image_tag 'index.jpg' %>
       <%= image_tag 'yoga.jpg' %>
       <%= image_tag 'video2.jpg' %>
 </div>
-
-  <div class="coachinghome">
-    <h5>Coaching</h5>
-  </div>
-  <div class="sporthome">
-    <h5>Sport</h5>
-  </div>
-  <div class= "mockuphome">
-    <h5>Mockups</h5>
-  </div>
 
