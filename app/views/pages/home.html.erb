@@ -1,2 +1,33 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class= "entete">
+  <h1>Bienvenu chez Rdvideo</h1>
+  <p> Prenez rdv avec un professionnel à distance </p>
+  <p></p>
+</div>
+
+
+  <div class="form-banner">
+    <div class="form-query">
+      <%= form_tag @user_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Trouvez le professionnel idéal"
+      %>
+    </div>
+    <div class="form-submit">
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+    </div>
+  </div>
+<br>
+<br>
+
+<div class="cards">
+      <%= image_tag 'index.jpg' %>
+      <%= image_tag 'yoga.jpg' %>
+      <%= image_tag 'video2.jpg' %>
+</div>
+
+
+
+
