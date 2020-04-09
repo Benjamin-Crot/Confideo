@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :profiles do
     member do
       get 'dashboard'
+      get 'calendar'
     end
     resources :availabilities, only: [:index, :new, :create]
+    resources :reasons, only: [:index, :new, :create]
   end
+
+  resources :reasons, only: [:edit, :update, :destroy]
 end

@@ -1,3 +1,26 @@
 <h2>Dashboard</h2>
 
-<%= link_to "Ajouter vos disponibilités", new_profile_availability_path(@profile), class: "btn-gradient" %>
+<%= link_to "Mon calendrier", calendar_profile_path(@profile), class: "btn-gradient" %>
+
+<div class="card-dashboard">
+  <h3>
+    Mes types de cours
+    <%= link_to "", new_profile_reason_path(@profile), class: "fas fa-plus-circle" %>
+  </h3>
+
+  <% if @reasons.empty? %>
+    <%= link_to "Ajouter un type de cours", new_profile_reason_path(@profile), class: "btn-gradient" %>
+  <% else %>
+    <% @reasons.each do |reason| %>
+      <%= reason.name %> -
+      <%= reason.price %>€
+      <%= link_to "", edit_reason_path(reason), class: "far fa-edit" %>
+      <%= link_to "", reason_path(reason), method: :delete, data: { confirm: "Êtes-vous sur ?" }, class: "fas fa-trash-alt" %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="card-dashboard">
+  <%= link_to "Ajouter vos disponibilités", new_profile_availability_path(@profile), class: "btn-gradient" %>
+</div>
+

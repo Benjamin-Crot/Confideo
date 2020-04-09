@@ -1,0 +1,7 @@
+<h2>Modifier la prestation</h2>
+
+<%= simple_form_for ([@profile, @reason]) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :price %>
+  <%= f.submit "Enregistrer", class: "btn btn-primary" %>
+<% end %>

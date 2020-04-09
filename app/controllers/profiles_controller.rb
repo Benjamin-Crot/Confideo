@@ -22,6 +22,11 @@ class ProfilesController < ApplicationController
   def dashboard
     @profile = Profile.find(params[:id])
     @user = User.find(@profile.user_id)
+    @reasons = Reason.where(profile_id: @profile.id)
+  end
+
+  def calendar
+    @profile = Profile.find(params[:id])
   end
 
   private
