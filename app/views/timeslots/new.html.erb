@@ -1,0 +1,9 @@
+<div class="profile_form">
+  <h2>Ajouter un créneau</h2>
+  <%= simple_form_for ([@profile, @timeslot]) do |f| %>
+    <%= f.input :date %>
+    <%= f.input :from_time %>
+    <%= f.input :to_time %>
+    <%= f.submit "Enregistrer", class: "btn btn-primary" %>
+  <% end %>
+</div>

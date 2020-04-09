@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_233736) do
+ActiveRecord::Schema.define(version: 2020_04_09_125442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,20 @@ ActiveRecord::Schema.define(version: 2020_04_08_233736) do
     t.index ["profile_id"], name: "index_reasons_on_profile_id"
   end
 
+  create_table "timeslots", force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.bigint "user_id"
+    t.bigint "reason_id"
+    t.date "date"
+    t.time "from_time"
+    t.time "to_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_timeslots_on_profile_id"
+    t.index ["reason_id"], name: "index_timeslots_on_reason_id"
+    t.index ["user_id"], name: "index_timeslots_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -101,4 +115,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_233736) do
   add_foreign_key "availabilities", "profiles"
   add_foreign_key "profiles", "users"
   add_foreign_key "reasons", "profiles"
+  add_foreign_key "timeslots", "profiles"
+  add_foreign_key "timeslots", "reasons"
+  add_foreign_key "timeslots", "users"
 end

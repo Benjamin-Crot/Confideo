@@ -22,5 +22,9 @@
 
 <div class="card-dashboard">
   <%= link_to "Ajouter vos disponibilités", new_profile_availability_path(@profile), class: "btn-gradient" %>
+  <%= link_to "Ajouter un créneau horraire", new_profile_timeslot_path(@profile), class: "btn-gradient" %>
+  <% @timeslots.each do |timeslot| %>
+    le <%= timeslot.date %> de <%= timeslot.from_time %> à <%= timeslot.to_time %>
+  <% end %>
 </div>
 
