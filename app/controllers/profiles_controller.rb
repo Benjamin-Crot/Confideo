@@ -23,6 +23,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     @user = User.find(@profile.user_id)
     @reasons = Reason.where(profile_id: @profile.id)
+    @timeslots = Timeslot.where(profile_id: @profile.id)
   end
 
   def calendar
