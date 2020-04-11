@@ -36,14 +36,6 @@ ActiveRecord::Schema.define(version: 2020_04_09_125442) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "avaibilities", force: :cascade do |t|
-    t.date "from_date"
-    t.date "to_date"
-    t.time "from_time"
-    t.time "to_time"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
 
   create_table "availabilities", force: :cascade do |t|
     t.bigint "profile_id", null: false

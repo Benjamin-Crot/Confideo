@@ -1,1 +1,22 @@
-<%= @profiles%>
+  <% @profiles.each do |profile|%>
+<div class="cards">
+  <div>
+    <h5>
+    <%= profile.user.first_name %>
+    <%= profile.user.last_name %>
+    </h5>
+    <h6>
+   Profession: <%= profile.profession %>
+    </h6>
+    <p>
+    Description: <%= profile.description %>
+    <%= profile.user.email%>
+    <% profile.timeslots %>
+    </p>
+  </div>
+  </div>
+  <% end %>
+</div>
+
+
+

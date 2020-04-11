@@ -16,6 +16,10 @@ class TimeslotsController < ApplicationController
     end
   end
 
+def index
+  @timeslot = Timeslot.all
+end
+
   private
 
   def timeslot_params
