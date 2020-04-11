@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+
+
   def new
     @profile = Profile.new
   end
@@ -17,6 +19,10 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find(params[:id])
     @user = User.find(@profile.user_id)
+  end
+
+  def index
+    @profiles = Profile.all
   end
 
   def dashboard

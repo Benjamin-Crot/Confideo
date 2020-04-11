@@ -22,7 +22,6 @@ class AvailabilitiesController < ApplicationController
   end
 
   def creating_slots(availability)
-    raise
     redirect_to dashboard_profile_path(@profile)
   end
 
