@@ -19,6 +19,7 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find(params[:id])
     @user = User.find(@profile.user_id)
+    @timeslots = @profile.timeslots.where(user_id: nil)
   end
 
   def index
@@ -29,11 +30,13 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     @user = User.find(@profile.user_id)
     @reasons = Reason.where(profile_id: @profile.id)
-    @timeslots = Timeslot.where(profile_id: @profile.id)
+    @timeslots_free = @profile.timeslots.where(user_id: nil)
+    @timeslots_booked = @profile.timeslots.where.not(user_id: nil)
   end
 
   def calendar
     @profile = Profile.find(params[:id])
+    @timeslots = @profile.timeslots
   end
 
   private

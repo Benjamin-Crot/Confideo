@@ -24,7 +24,7 @@
   <%= link_to "Ajouter vos disponibilités", new_profile_availability_path(@profile), class: "btn-gradient" %>
   <%= link_to "Ajouter un créneau horraire", new_profile_timeslot_path(@profile), class: "btn-gradient" %>
   <ul class="mt-4">
-    <% @timeslots.each do |timeslot| %>
+    <% @timeslots_free.each do |timeslot| %>
      <li>le <%= timeslot.date.strftime("%d/%m/%Y") %> de <%= timeslot.from_time.strftime("%k:%M")  %> à <%= timeslot.to_time.strftime("%k:%M") %></li>
     <% end %>
 
@@ -33,3 +33,12 @@
 
 </div>
 
+<div class="card-dashboard">
+  <h3>Mes prochains Rdvideo</h3>
+  <ul class="mt-4">
+    <% @timeslots_booked.each do |timeslot| %>
+     <li>le <%= timeslot.date.strftime("%d/%m/%Y") %> de <%= timeslot.from_time.strftime("%k:%M")  %> à <%= timeslot.to_time.strftime("%k:%M") %> avec <%= timeslot.user.first_name %></li>
+    <% end %>
+
+  </ul>
+</div>

@@ -13,5 +13,9 @@ Rails.application.routes.draw do
   end
 
   resources :reasons, only: [:edit, :update, :destroy]
-  resources :timeslots, only: [:index, :edit, :update, :destroy]
+  resources :timeslots, only: [:index, :edit, :update, :destroy] do
+    member do
+      get 'booking'
+    end
+  end
 end

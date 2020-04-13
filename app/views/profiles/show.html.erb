@@ -1,3 +1,20 @@
 
 <h2><%= @user.first_name %> <%= @user.last_name %> - <%= @profile.profession %></h2>
 
+<div class="card-dashboard">
+  <h2>Créneaux disponibles</h2>
+  <ul class="mt-4">
+    <% if  @timeslots.empty?%>
+      <p>Pas de créneau displonible pour le moment</p>
+    <% else %>
+      <% @timeslots.each do |timeslot| %>
+       <li>
+        le <%= timeslot.date.strftime("%d/%m/%Y") %>
+        de <%= timeslot.from_time.strftime("%k:%M")  %>
+        à <%= timeslot.to_time.strftime("%k:%M") %>
+        <%= link_to "Reserver ce créneau", booking_timeslot_path(timeslot) %>
+      <% end %>
+
+    <% end %>
+  </ul>
+</div>
