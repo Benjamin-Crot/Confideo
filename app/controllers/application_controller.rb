@@ -18,4 +18,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def change_date(old_date)
+    str = 'old_date'
+    @date = Date.strptime(str, '%Y-%m-%d')
+    @date.strftime('%d-%m-%Y')
+  end
+
+  helper_method :change_date
 end

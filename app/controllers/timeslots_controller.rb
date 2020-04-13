@@ -16,9 +16,23 @@ class TimeslotsController < ApplicationController
     end
   end
 
-def index
-  @timeslot = Timeslot.all
-end
+  def index
+    @timeslot = Timeslot.all
+  end
+
+  def update
+    @timeslot = Timeslot.find(params[:id])
+    @timeslot.user = current_user
+    @timeslot.update
+    # redirect_to availabilities_path
+  end
+
+  def booking
+    @timeslot = Timeslot.find(params[:id])
+    @timeslot.user = current_user
+    @timeslot.save
+    redirect_to profiles_path
+  end
 
   private
 

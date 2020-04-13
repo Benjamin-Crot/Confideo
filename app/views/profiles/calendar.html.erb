@@ -1,32 +1,31 @@
-<header>Vos disponibilités</header>
 <div class="container py-5">
-
-  <!-- For Demo Purpose -->
-
-
 
   <!-- Calendar -->
   <div class="calendar shadow bg-white p-5">
     <div class="d-flex align-items-center"><i class="fa fa-calendar fa-3x mr-3"></i>
-      <h2 class="month font-weight-bold mb-0 text-uppercase">December 2019</h2>
+      <h2 class="month font-weight-bold mb-0 text-uppercase"><%= Date.today.strftime("%B") %></h2>
     </div>
     <p class="font-italic text-muted mb-5">No events for this day.</p>
-    <ol class="day-names list-unstyled">
-      <li class="font-weight-bold text-uppercase">Sun</li>
+<!--     <ol class="day-names list-unstyled">
       <li class="font-weight-bold text-uppercase">Mon</li>
       <li class="font-weight-bold text-uppercase">Tue</li>
       <li class="font-weight-bold text-uppercase">Wed</li>
       <li class="font-weight-bold text-uppercase">Thu</li>
       <li class="font-weight-bold text-uppercase">Fri</li>
       <li class="font-weight-bold text-uppercase">Sat</li>
-    </ol>
+      <li class="font-weight-bold text-uppercase">Sun</li>
+    </ol> -->
 
     <ol class="days list-unstyled">
-      <li>
-        <div class="date">1</div>
-        <div class="event bg-success">Event with Long Name</div>
-      </li>
-      <li>
+      <%= month_calendar events: @timeslots do |date, timeslots| %>
+        <li>
+          <div class="date"><%= date.day %></div>
+          <% timeslots.each do |timeslot| %>
+            <div class="event bg-primary"><%= timeslot.user.first_name %></div>
+          <% end %>
+        </li>
+      <% end %>
+      <!-- <li>
         <div class="date">2</div>
       </li>
       <li>
@@ -132,8 +131,13 @@
       </li>
       <li class="outside">
         <div class="date">4</div>
-      </li>
+      </li> -->
     </ol>
   </div>
 </div>
+
+
+<%= month_calendar do |date| %>
+  <%= date.day %>
+<% end %>
 
