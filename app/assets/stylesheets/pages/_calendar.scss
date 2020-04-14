@@ -41,6 +41,7 @@ Calendar Styling */
 .calendar .days li {
   border-bottom: 1px solid #eee;
   min-height: 8rem;
+  width: auto;
 }
 
 .calendar .days li .date {

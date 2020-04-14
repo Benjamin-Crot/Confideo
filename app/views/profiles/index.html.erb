@@ -1,24 +1,36 @@
   <% @profiles.each do |profile|%>
-    <%= link_to profile_path(profile) do %>
-      <div class="cards">
+    <%#= link_to profile_path(profile) do %>
+      <div class="cards-profiles">
+        <div>
+          <%= cl_image_tag profile.user.photo.key, crop: :thumb, gravity: :face, width: 50, height: 50, class: "avatar-large" %>
+        </div>
         <div>
           <h5>
             <%= profile.user.first_name %>
             <%= profile.user.last_name %>
           </h5>
           <h6>
-            Profession: <%= profile.profession %>
+            <%= profile.profession %>
           </h6>
-          <p>
-            Description: <%= profile.description %>
-            <%= profile.user.email%>
-            <% profile.timeslots %>
-          </p>
+        </div>
+        <div class="book-calendar">
+          <%= week_calendar partial: 'profiles/shared/booking_calendar', events: profile.timeslots.where(user_id: nil) do |date, timeslots| %>
+            <%= date.day %>
+
+            <% timeslots.sort_by!{ |t| t.from_time }.each do |timeslot| %>
+              <div class="button-timeslot">
+                <%= link_to booking_timeslot_path(timeslot) do %>
+                  <%= timeslot.from_time.strftime('%H:%M') %>
+                <% end %>
+              </div>
+            <% end %>
+
+          <% end %>
         </div>
       </div>
-    <% end %>
-  <% end %>
 
+    <%# end %>
+  <% end %>
 
 
 
