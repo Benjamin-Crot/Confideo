@@ -2,7 +2,11 @@
     <%#= link_to profile_path(profile) do %>
       <div class="cards-profiles">
         <div>
-          <%= cl_image_tag profile.user.photo.key, crop: :thumb, gravity: :face, width: 50, height: 50, class: "avatar-large" %>
+          <% if profile.user.photo.attached? && profile.user.photo.key.present? %>
+                  <%= cl_image_tag profile.user.photo.key, crop: :thumb, gravity: :face, width: 50, height: 50, class: "avatar-large"  %>
+                <% else %>
+                  <%= image_tag("image_not_found.png") %>
+                <% end %>
         </div>
         <div>
           <h5>
