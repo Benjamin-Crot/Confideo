@@ -11,4 +11,7 @@ class Timeslot < ApplicationRecord
       self.date ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
   end
 
+
+
+
 end
