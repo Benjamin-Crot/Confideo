@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  # before_action :set_time_zone
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def configure_permitted_parameters
@@ -25,4 +26,10 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :change_date
+
+  # private
+
+  #   def set_time_zone
+  #     Time.zone = current_user.time_zone
+  #   end
 end

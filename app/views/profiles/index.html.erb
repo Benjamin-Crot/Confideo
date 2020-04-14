@@ -16,24 +16,38 @@
           <h6>
             <%= profile.profession %>
           </h6>
+        <div class="profile-info">
+          <div>
+            <%= cl_image_tag profile.user.photo.key, crop: :thumb, gravity: :face, width: 50, height: 50, class: "avatar-large" %>
+          </div>
+          <div>
+            <h5>
+              <%= profile.user.first_name %>
+              <%= profile.user.last_name %>
+            </h5>
+            <h6>
+              <%= profile.profession %>
+            </h6>
+          </div>
         </div>
+
         <div class="book-calendar">
           <%= week_calendar partial: 'profiles/shared/booking_calendar', events: profile.timeslots.where(user_id: nil) do |date, timeslots| %>
-            <%= date.day %>
-
-            <% timeslots.sort_by!{ |t| t.from_time }.each do |timeslot| %>
-              <div class="button-timeslot">
+            <% if timeslots.empty? %>
+              <hr>
+            <% else %>
+              <% timeslots.sort_by!{ |t| t.from_time }.each do |timeslot| %>
                 <%= link_to booking_timeslot_path(timeslot) do %>
-                  <%= timeslot.from_time.strftime('%H:%M') %>
+                  <div class="button-timeslot">
+                    <%= timeslot.from_time.strftime('%H:%M') %>
+                  </div>
                 <% end %>
-              </div>
+              <% end %>
             <% end %>
-
           <% end %>
         </div>
-      </div>
 
-    <%# end %>
+      </div>
   <% end %>
 
 
