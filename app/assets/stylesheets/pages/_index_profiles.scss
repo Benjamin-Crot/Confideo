@@ -2,6 +2,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
+  justify-content: space-between;
   border-radius: 5px;
   margin: auto;
   margin-top: 32px;
@@ -12,19 +13,61 @@
     margin-right: 15px;
   }
 
+  .profile-info{
+    display: flex;
+  }
+
   .book-calendar{
     width: 70%;
   }
 
+  hr{
+    width: 10px;
+  }
+
   .button-timeslot{
-    background: #2660E5;
+    background: #b8e9ff;
     border-radius: 5px;
     margin-top: 5px;
     text-align: center;
-    color: white;
+    padding: 4px;
     a{
-      color: white;
+      color: #025ca4;
       text-decoration: none;
     }
+    &:hover{
+      background: #4557a5;
+      color: white;
+      a{
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.container-calendar{
+  display: flex;
+  .chevron{
+    flex-grow: 1;
+    font-size: 35px;
+    text-decoration: none;
+    padding-top: 16px;
+    margin-right: 8px;
+    margin-left: 8px;
+    a:hover{
+      text-decoration: none;
+    }
+  }
+
+  .calendar-profile{
+    flex-grow: 10;
+  }
+  .weekday{
+    font-size: 16px;
+  }
+  .date-month{
+    font-size: 14px;
+    font-weight: 100;
   }
 }
