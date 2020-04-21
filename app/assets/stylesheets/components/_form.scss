@@ -28,14 +28,27 @@
   }
 }
 
+.form-banner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .form-query {
-  width: 500px;
-  margin: auto;
+  flex-grow: 1;
+  width: 400px;
 }
 
 .form-submit {
-margin-left: 100px;
-transform: translate(968px, -40px);
-width: 224px;
+background-color: red;
 }
 
+.form-banner {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+}

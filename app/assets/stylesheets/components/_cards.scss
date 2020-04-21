@@ -1,22 +1,37 @@
-.cards {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 16px;
-  height: 100px;
-  width: 900px;
-  margin-bottom: 20px;
-  text-align: center;
-  align-items: center;
-  margin: auto;
-  margin-top: 32px;
+.card {
+    background-color: #2a2a2a;
+    margin: 15px;
+    border-radius: 5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    padding: 15px;
+    border: 5px solid #272727;
+
+}
+
+.bloc-vp-cards {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
 }
 
 
-.cards img {
-  width: 130x;
-  height: 230px;
 
+.card img {
+  width: 150x;
+  height: 250px;
 }
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
