@@ -24,7 +24,7 @@
           </li>
         <% end %>
         <li class="nav-item dropdown">
-            <% if current_user.photo.attached? && current.user.photo.key.present? %>
+            <% if current_user.photo.attached? && current_user.photo.key.present? %>
                     <%= cl_image_tag current_user.photo.key, class: "avatar-large"  %>
                   <% else %>
                   <div class= "avatar-home">
