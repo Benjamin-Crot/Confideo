@@ -1,0 +1,34 @@
+.footer {
+    background-color: #2A2A2A;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    height: 100px;
+    color: rgba(0, 0, 0, 0.3);
+    border-top: solid 1px #e6e6e6;
+    font-family: Nunito;
+    padding-left: 30px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  color: #fbf9fa;
+  opacity: 1;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  color: #fd0054;
+  opacity: 1;
+}
+.footer .fa-heart {
+  color: #fd0054;
+}
+
