@@ -1,20 +1,20 @@
 
 <div class="banner-home" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= asset_path 'home.jpg' %>);">
 <div class= "entete">
-  <h2> Prenez rdv avec un professionnel à distance </h2>
-</div>
+    <h2> Prenez rdv avec un professionnel à distance </h2>
 
- <div class="form-banner">
-    <div class="form-query">
-      <%= form_tag profiles_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Trouve le le professionnel idéal"%>
-    </div>
-    <div class="form-submit">
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
+   <div class="form-banner">
+      <div class="form-query">
+        <%= form_tag profiles_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Trouve le le professionnel idéal"%>
+      </div>
+      <div class="form-submit">
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+      </div>
     </div>
   </div>
 </div>
