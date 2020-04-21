@@ -1,7 +1,6 @@
 <div class= "entete">
   <h1>Bienvenu chez Rdvideo</h1>
   <p> Prenez rdv avec un professionnel à distance </p>
-  <p></p>
 </div>
 <br>
 <br>
@@ -9,24 +8,14 @@
 
 
 
-  <div class="form-banner">
-    <div class="form-query">
-      <%= form_tag @user_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Trouvez le professionnel idéal"
-      %>
-    </div>
-    <div class="form-submit">
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-    </div>
-  </div>
-</div>
-<br>
-<br>
-<br>
-    <% end %>
+  <%= form_tag profiles_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Trouvea le professionnel idéal"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
     </div>
   </div>
 <br>
