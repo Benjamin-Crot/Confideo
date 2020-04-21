@@ -1,42 +1,44 @@
+
+<div class="banner-home" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= asset_path 'home.jpg' %>);">
 <div class= "entete">
   <h1>Bienvenu chez Rdvideo</h1>
   <p> Prenez rdv avec un professionnel à distance </p>
-  <p></p>
 </div>
-<br>
-<br>
-<br>
 
-
-
-  <div class="form-banner">
+ <div class="form-banner">
     <div class="form-query">
-      <%= form_tag @user_path, method: :get do %>
+      <%= form_tag profiles_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
-        placeholder: "Trouvez le professionnel idéal"
-      %>
+        placeholder: "Trouve le le professionnel idéal"%>
     </div>
     <div class="form-submit">
     <%= submit_tag "Search", class: "btn btn-primary" %>
-    </div>
-  </div>
-</div>
-<br>
-<br>
-<br>
     <% end %>
     </div>
   </div>
-<br>
-<br>
-
-<div class="cards">
-      <%= image_tag 'index.jpg' %>
-      <%= image_tag 'yoga.jpg' %>
-      <%= image_tag 'video2.jpg' %>
 </div>
+
+
+
+<div class="container">
+  <div class="bloc-vp">
+    <div class="bloc-vp-cards justify-content-around">
+      <div class="card">
+        <%= link_to new_user_registration_path do %>
+          <%= image_tag 'yoga.jpg' %>
+        <% end %>
+      </div>
+       <div class="card">
+        <%= link_to profiles_path do %>
+        <%= image_tag 'video2.jpg' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 

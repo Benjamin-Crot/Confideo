@@ -22,8 +22,13 @@ class ProfilesController < ApplicationController
     @timeslots = @profile.timeslots.where(user_id: nil)
   end
 
+
   def index
-    @profiles = Profile.all
+    if params[:query].present?
+      @profiles = Profile.where("profession ILIKE ?", "%#{params[:query]}%")
+    else
+      @profiles= Profile.all
+    end
   end
 
   def dashboard
