@@ -34,6 +34,13 @@ class TimeslotsController < ApplicationController
     redirect_to profiles_path
   end
 
+  def destroy
+    # @profile = Timeslot.profile
+    @timeslot = Timeslot.find(params[:id])
+    @timeslot.destroy
+    # redirect_to dashboard_profile_path(@profile)
+  end
+
   private
 
   def timeslot_params
