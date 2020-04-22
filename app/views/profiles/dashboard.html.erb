@@ -1,37 +1,19 @@
-<h2>Dashboard</h2>
-
-
-<!-- Tab links -->
-<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'London')">Mon calendrier</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">Mes disponibilités</button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
-</div>
-
-<!-- Tab content -->
-<div id="London" class="tabcontent">
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
-</div>
-
-<div id="Paris" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p>
-</div>
-
-<div id="Tokyo" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
-</div>
-
-
-
-
-<%= link_to "Mon calendrier", calendar_profile_path(@profile), class: "btn-gradient" %>
+<h2 class="text-center">Dashboard</h2>
+<div class="container">
 
 <div class="card-dashboard">
+  <h3>Mes prochains Rdvideo</h3>
+  <ul class="mt-4">
+    <% @timeslots_booked.each do |timeslot| %>
+     <li>le <%= timeslot.date.strftime("%d/%m/%Y") %> de <%= timeslot.from_time.strftime("%k:%M")  %> à <%= timeslot.to_time.strftime("%k:%M") %> avec <%= timeslot.user.first_name %></li>
+    <% end %>
+
+  </ul>
+</div>
+
+<div class="card-dashboard1">
   <h3>
-    Mes types de cours
+    Mes prestations
     <%= link_to "", new_profile_reason_path(@profile), class: "fas fa-plus-circle" %>
   </h3>
 
@@ -46,26 +28,21 @@
     <% end %>
   <% end %>
 </div>
+</div>
 
-<div class="card-dashboard">
-  <%= link_to "Ajouter vos disponibilités", new_profile_availability_path(@profile), class: "btn-gradient" %>
-  <%= link_to "Ajouter un créneau horraire", new_profile_timeslot_path(@profile), class: "btn-gradient" %>
-  <ul class="mt-4">
+
+<div class="container1">
+<div class="card-dashboard2">
+  <%= link_to "Ajouter vos disponibilités", new_profile_availability_path(@profile), class: "btn-gradient2" %>
+  <%= link_to "Ajouter un créneau horraire", new_profile_timeslot_path(@profile), class: "btn-gradient2" %>
+  <ul>
     <% @timeslots_free.each do |timeslot| %>
      <li>le <%= timeslot.date.strftime("%d/%m/%Y") %> de <%= timeslot.from_time.strftime("%k:%M")  %> à <%= timeslot.to_time.strftime("%k:%M") %></li>
     <% end %>
 
+<%= link_to "Mon calendrier", calendar_profile_path(@profile), class: "btn-gradient2" %>
   </ul>
-
+</div>
 
 </div>
 
-<div class="card-dashboard">
-  <h3>Mes prochains Rdvideo</h3>
-  <ul class="mt-4">
-    <% @timeslots_booked.each do |timeslot| %>
-     <li>le <%= timeslot.date.strftime("%d/%m/%Y") %> de <%= timeslot.from_time.strftime("%k:%M")  %> à <%= timeslot.to_time.strftime("%k:%M") %> avec <%= timeslot.user.first_name %></li>
-    <% end %>
-
-  </ul>
-</div>
