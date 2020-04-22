@@ -25,7 +25,13 @@
   <%= link_to "Ajouter un créneau horraire", new_profile_timeslot_path(@profile), class: "btn-gradient" %>
   <ul class="mt-4">
     <% @timeslots_free.each do |timeslot| %>
-     <li>le <%= timeslot.date.strftime("%d/%m/%Y") %> de <%= timeslot.from_time.strftime("%k:%M")  %> à <%= timeslot.to_time.strftime("%k:%M") %></li>
+      <li>
+        le <%= timeslot.date.strftime("%d/%m/%Y") %>
+        de <%= timeslot.from_time.strftime("%k:%M")  %>
+        à <%= timeslot.to_time.strftime("%k:%M") %>
+        ID: <%= timeslot.id %>
+        <%= link_to "", timeslot_path(timeslot), method: :delete, data: { confirm: "Êtes-vous sur ?" }, class: "fas fa-trash-alt", :remote => true %>
+        </li>
     <% end %>
 
   </ul>
