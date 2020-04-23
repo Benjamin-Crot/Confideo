@@ -33,6 +33,7 @@ class ProfilesController < ApplicationController
 
   def dashboard
     @profile = Profile.find(params[:id])
+    @timeslots = @profile.timeslots
     @user = User.find(@profile.user_id)
     @reasons = Reason.where(profile_id: @profile.id)
     @timeslots_free = @profile.timeslots.where(user_id: nil)
