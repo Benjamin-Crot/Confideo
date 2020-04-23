@@ -1,7 +1,5 @@
 <h2>Dashboard</h2>
 
-<%= link_to "Mon calendrier", calendar_profile_path(@profile), class: "btn-gradient" %>
-
 <div class="card-dashboard">
   <h3>
     Mes types de cours
@@ -47,4 +45,56 @@
     <% end %>
 
   </ul>
+</div>
+
+<div class="card-dashboard" style="width: 70%;">
+  <div style="margin-bottom: 15px;">
+    <%= link_to "Mon calendrier", calendar_profile_path(@profile), class: "btn-gradient" %>
+  </div>
+  <div class="book-calendar">
+    <%= week_calendar partial: 'profiles/shared/booking_calendar', events: @profile.timeslots do |date, timeslots| %>
+      <% if timeslots.empty? %>
+        <hr>
+      <% else %>
+        <% timeslots.sort_by!{ |t| t.from_time }.each do |timeslot| %>
+          <%#= link_to booking_timeslot_path(timeslot) do %>
+          <% if timeslot.user_id.nil? %>
+            <div class="button-timeslot" id="available">
+              <%= timeslot.from_time.strftime('%H:%M') %>
+            </div>
+          <% else %>
+            <div class="button-timeslot" id="booked">
+              <%= timeslot.from_time.strftime('%H:%M') %>
+            </div>
+          <% end %>
+          <%# end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>`
+
+<div class="container py-5">
+  <!-- Calendar -->
+  <div class="calendar shadow bg-white p-5">
+    <div class="d-flex align-items-center"><i class="fa fa-calendar fa-3x mr-3"></i>
+      <h2 class="month font-weight-bold mb-0 text-uppercase"><%= Date.today.strftime("%B") %></h2>
+    </div>
+    <p class="font-italic text-muted mb-5">No events for this day.</p>
+    <ol class="days list-unstyled">
+      <%= week_calendar events: @timeslots do |date, timeslots| %>
+        <li>
+          <div class="date"><%= date.day %></div>
+          <% timeslots.each do |timeslot| %>
+            <% if timeslot.user_id.nil? %>
+              <div class="event bg-success">Disponible</div>
+            <% else %>
+              <div class="event bg-primary"><%= timeslot.user.first_name %> <%= timeslot.from_time.strftime('%H:%M') %>
+</div>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
+    </ol>
+  </div>
 </div>

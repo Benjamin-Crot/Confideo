@@ -1,21 +1,30 @@
   <% @profiles.each do |profile|%>
     <%#= link_to profile_path(profile) do %>
       <div class="cards-profiles">
-        <div>
-            <% if profile.user.photo.attached? && profile.user.photo.key.present? %>
-                    <%= cl_image_tag profile.user.photo.key, crop: :thumb, gravity: :face, width: 50, height: 50, class: "avatar-large"  %>
-                  <% else %>
-                    <%= image_tag("image_not_found.png") %>
-                  <% end %>
-        </div>
-        <div>
-          <h5>
-            <%= profile.user.first_name %>
-            <%= profile.user.last_name %>
-          </h5>
-          <h6>
-            <%= profile.profession %>
-          </h6>
+        <div class="profile-info">
+          <div class="header-profile">
+            <div>
+              <% if profile.user.photo.attached? && profile.user.photo.key.present? %>
+                <%= cl_image_tag profile.user.photo.key, crop: :thumb, gravity: :face, width: 50, height: 50, class: "avatar-large"  %>
+              <% else %>
+                <%= image_tag("image_not_found.png") %>
+              <% end %>
+            </div>
+            <div>
+              <h5>
+                <%= profile.user.first_name %>
+                <%= profile.user.last_name %>
+              </h5>
+              <h6>
+                <%= profile.profession %>
+              </h6>
+            </div>
+          </div>
+
+          <div>
+            <%= link_to "Plus d'information", profile_path(profile), class: "btn-gradient" %>
+          </div>
+
         </div>
 
         <div class="book-calendar">

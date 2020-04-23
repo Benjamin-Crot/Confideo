@@ -1,5 +1,20 @@
+<div class="head-profile">
+  <div>
+    <% if @profile.user.photo.attached? && @profile.user.photo.key.present? %>
+      <%= cl_image_tag @profile.user.photo.key, crop: :thumb, gravity: :face, width: 50, height: 50, class: "avatar-large"  %>
+    <% else %>
+      <%= image_tag("image_not_found.png") %>
+    <% end %>
+  </div>
+  <h2><%= @user.first_name %> <%= @user.last_name %> - <%= @profile.profession %></h2>
 
-<h2><%= @user.first_name %> <%= @user.last_name %> - <%= @profile.profession %></h2>
+</div>
+
+<div class="container-1">
+
+
+</div>
+
 
 <div class="card-dashboard">
   <h2>Créneaux disponibles</h2>
