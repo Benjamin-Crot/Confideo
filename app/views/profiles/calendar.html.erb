@@ -17,7 +17,7 @@
     </ol> -->
 
     <ol class="days list-unstyled">
-      <%= week_calendar events: @timeslots do |date, timeslots| %>
+      <%= month_calendar events: @timeslots do |date, timeslots| %>
         <li>
           <div class="date"><%= date.day %></div>
           <% timeslots.each do |timeslot| %>
