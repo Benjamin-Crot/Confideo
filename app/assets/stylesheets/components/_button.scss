@@ -44,6 +44,41 @@
   border-color: #fd0054;
 }
 
+.button-timeslot{
+  border-radius: 5px;
+  margin-top: 5px;
+  text-align: center;
+  padding: 4px;
+  a{
+    color: #025ca4;
+    text-decoration: none;
+  }
+  &:hover{
+    background: #4557a5;
+    color: white;
+    a{
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+#available{
+  background: #b8e9ff;
+  &:hover{
+    background: #4557a5;
+    color: white;
+  }
+}
+
+#booked {
+    background: #88f588;
+
+  &:hover{
+    background: #00af00;
+  }
+}
+
 #hey {
   display: block !important;
   margin: 0 auto !important;
