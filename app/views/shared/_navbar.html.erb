@@ -23,19 +23,9 @@
             <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
         <% end %>
-<<<<<<< HEAD
 <!--         <li class="nav-item dropdown">
  -->          <%#= cl_image_tag current_user.photo.key, crop: :thumb, gravity: :face, width: 50, height: 50,class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-=======
-        <li class="nav-item dropdown">
-            <% if current_user.photo.attached? && current_user.photo.key.present? %>
-                    <%= cl_image_tag current_user.photo.key, class: "avatar-large"  %>
-                  <% else %>
-                  <div class= "avatar-home">
-                    <%= image_tag("image_not_found.png")%>
-                    </div>
-                  <% end %>
->>>>>>> b04b76c5eafe9908adc0973e36ad3462000c4b72
+
 
           <%= image_tag "tom.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

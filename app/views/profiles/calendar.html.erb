@@ -17,14 +17,15 @@
     </ol> -->
 
     <ol class="days list-unstyled">
-      <%= month_calendar events: @timeslots do |date, timeslots| %>
+      <%= week_calendar events: @timeslots do |date, timeslots| %>
         <li>
           <div class="date"><%= date.day %></div>
           <% timeslots.each do |timeslot| %>
             <% if timeslot.user_id.nil? %>
               <div class="event bg-success">Disponible</div>
             <% else %>
-              <div class="event bg-primary"><%= timeslot.user.first_name %></div>
+              <div class="event bg-primary"><%= timeslot.user.first_name %> <%= timeslot.from_time.strftime('%H:%M') %>
+</div>
             <% end %>
           <% end %>
         </li>

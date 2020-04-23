@@ -1,28 +1,7 @@
 <h2>Dashboard</h2>
 
 
-<!-- Tab links -->
-<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'London')">Mon calendrier</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">Mes disponibilités</button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
-</div>
 
-<!-- Tab content -->
-<div id="London" class="tabcontent">
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
-</div>
-
-<div id="Paris" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p>
-</div>
-
-<div id="Tokyo" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
-</div>
 
 
 
@@ -49,7 +28,6 @@
 
 <div class="card-dashboard">
   <%= link_to "Ajouter vos disponibilités", new_profile_availability_path(@profile), class: "btn-gradient" %>
-  <%= link_to "Ajouter un créneau horraire", new_profile_timeslot_path(@profile), class: "btn-gradient" %>
   <ul class="mt-4">
     <% @timeslots_free.each do |timeslot| %>
       <li>
@@ -75,3 +53,68 @@
 
   </ul>
 </div>
+
+<div class="container py-5">
+
+  <!-- Calendar -->
+  <div class="calendar shadow bg-white p-5">
+    <div class="d-flex align-items-center"><i class="fa fa-calendar fa-3x mr-3"></i>
+      <h2 class="month font-weight-bold mb-0 text-uppercase"><%= Date.today.strftime("%B") %></h2>
+    </div>
+    <p class="font-italic text-muted mb-5">No events for this day.</p>
+<!--     <ol class="day-names list-unstyled">
+      <li class="font-weight-bold text-uppercase">Mon</li>
+      <li class="font-weight-bold text-uppercase">Tue</li>
+      <li class="font-weight-bold text-uppercase">Wed</li>
+      <li class="font-weight-bold text-uppercase">Thu</li>
+      <li class="font-weight-bold text-uppercase">Fri</li>
+      <li class="font-weight-bold text-uppercase">Sat</li>
+      <li class="font-weight-bold text-uppercase">Sun</li>
+    </ol> -->
+
+    <ol class="days list-unstyled">
+      <%= week_calendar events: @timeslots do |date, timeslots| %>
+        <li>
+          <div class="date"><%= date.day %></div>
+          <% timeslots.each do |timeslot| %>
+            <% if timeslot.user_id.nil? %>
+              <div class="event bg-success">Disponible</div>
+            <% else %>
+              <div class="event bg-primary"><%= timeslot.user.first_name %> <%= timeslot.from_time.strftime('%H:%M') %>
+</div>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
+      <!-- <li>
+        <div class="date">2</div>
+      </li>
+      <li>
+        <div class="date">13</div>
+        <div class="event all-day begin span-2 bg-warning">Event Name</div>
+      </li>
+      <li>
+        <div class="date">21</div>
+        <div class="event bg-primary">Event Name</div>
+        <div class="event bg-success">Event Name</div>
+      </li>
+      <li>
+        <div class="date">22</div>
+        <div class="event bg-info">Event with Longer Name</div>
+      </li>
+      <li class="outside">
+        <div class="date">1</div>
+      </li>
+      <li class="outside">
+        <div class="date">2</div>
+      </li>
+      <li class="outside">
+        <div class="date">3</div>
+      </li>
+      <li class="outside">
+        <div class="date">4</div>
+      </li> -->
+    </ol>
+  </div>
+</div>
+
