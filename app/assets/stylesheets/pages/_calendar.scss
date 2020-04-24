@@ -12,6 +12,7 @@ clearfix::after,
 Calendar Styling */
 .calendar {
   border-radius: 10px;
+  text-align:center;
 }
 
 .month {
@@ -20,7 +21,7 @@ Calendar Styling */
 
 @media (min-width: 992px) {
   .month {
-    font-size: 1.5rem;
+    font-size: .5rem;
   }
 }
 
@@ -41,11 +42,12 @@ Calendar Styling */
 .calendar .days li {
   border-bottom: 1px solid #eee;
   min-height: 8rem;
-  width: auto;
+  width: 100px;
 }
 
 .calendar .days li .date {
   margin: 0.5rem 0;
+  transform: translate(43px, -57px);
 }
 
 .calendar .days li .event {
@@ -56,7 +58,7 @@ Calendar Styling */
   overflow: hidden;
   text-overflow: ellipsis;
   border-radius: 4rem;
-  margin-bottom: 1px;
+  margin-bottom: 12px;
 }
 
 .calendar .days li .event.span-2 {

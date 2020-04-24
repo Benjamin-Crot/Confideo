@@ -1,3 +1,19 @@
+  <br>
+<!--  Resarch form -->
+   <div class="form-container">
+      <div class="form-query">
+        <%= form_tag profiles_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Coach professionnel, prof de yoga..."%>
+      </div>
+      <div class="form-submit">
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+      </div>
+    </div>
+
   <% @profiles.each do |profile|%>
     <%#= link_to profile_path(profile) do %>
       <div class="cards-profiles">
