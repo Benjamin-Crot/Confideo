@@ -1,10 +1,9 @@
 <br>
-<h2 class= "dashtitle">Dashboard</h2>
+
 <div class="container py-5">
   <!-- Calendar -->
   <div class="calendar shadow bg-white p-5">
-    <div class="d-flex align-items-center"><i class="fa fa-calendar fa-2x mr-3"></i>
-      <h2 class="month font-weight-bold mb-0 text-uppercase"><%= Date.today.strftime("%B") %></h2>
+    <div class="d-flex align-items-center"></i>
     </div>
   <h3 class="text-center">Mes prochains Rdvideo</h3>
 <!--     <ol class="day-names list-unstyled">
@@ -23,8 +22,7 @@
           <div class="date text-center" ><%= date.day %></div>
           <% timeslots.each do |timeslot| %>
             <% if timeslot.user_id.nil? %>
-              <div class="event bg-success ">Disponible - <%= link_to "", timeslot_path(timeslot), method: :delete, data: { confirm: "Êtes-vous sur ?" }, class: "fas fa-trash-alt", :remote => true %>
-</div>
+              <div class="event bg-success ">Disponible - <%= link_to "", timeslot_path(timeslot), method: :delete, data: { confirm: "Êtes-vous sur ?" }, class: "fas fa-trash-alt", :remote => true %></div>
             <% elsif %>
               <div class="event bg-primary"><%= timeslot.user.first_name %> - <%= timeslot.from_time.strftime('%H:%M') %></div>
               <% else %>
@@ -74,7 +72,7 @@
     </ol>
   </div>
 </div>
-
+</div>
 
 
 <div class="card-dashboard">
@@ -82,7 +80,6 @@
     Mes types de cours
     <%= link_to "", new_profile_reason_path(@profile), class: "fas fa-plus-circle" %>
   </h3>
-
   <% if @reasons.empty? %>
     <%= link_to "Ajouter un type de cours", new_profile_reason_path(@profile), class: "btn-gradient" %>
   <% else %>

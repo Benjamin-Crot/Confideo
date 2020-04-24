@@ -43,3 +43,21 @@ margin: auto;
     margin: auto;
     margin-top: 24px;
 }
+
+@media(max-width: 1300px) {
+  .container {
+width : 100%;  }
+}
+
+
+@media(max-width: 992px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media(max-width: 768px) {
+  .cards {
+    width: 100%;
+  }
+}
