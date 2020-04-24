@@ -1,35 +1,72 @@
 <div class="head-profile">
-  <div>
-    <% if @profile.user.photo.attached? && @profile.user.photo.key.present? %>
-      <%= cl_image_tag @profile.user.photo.key, crop: :thumb, gravity: :face, width: 50, height: 50, class: "avatar-large"  %>
-    <% else %>
-      <%= image_tag("image_not_found.png") %>
-    <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="container-flex">
+            <div class="profile-avatar">
+              <% if @profile.user.photo.attached? && @profile.user.photo.key.present? %>
+                <%= cl_image_tag @profile.user.photo.key, crop: :thumb, gravity: :face, width: 200, height: 200, class: "avatar-square"  %>
+              <% else %>
+                <%= image_tag("image_not_found.png") %>
+              <% end %>
+            </div>
+            <div style="margin-top: 20px; color: white;">
+              <h2>
+                <%= @user.first_name %> <%= @user.last_name %>
+              </h2>
+              <h5>
+                <%= @profile.profession %>
+              </h5>
+            </div>
+          </div>
+      </div>
+    </div>
   </div>
-  <h2><%= @user.first_name %> <%= @user.last_name %> - <%= @profile.profession %></h2>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-7" id="profile-show-information">
+      <div class="card-profile-show-information">
+        <h5>Description</h5>
+        <p><%= @profile.description %></p>
+      </div>
+
+      <div class="card-profile-show-information">
+        <h5>Liens</h5>
+        <p><%= @profile.link %></p>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-5" id="profile-show-booking">
+      <div class="card-profile-show-booking">
+        <div>
+          <h5>Prenez votre rendez-vous en ligne</h5>
+
+        </div>
+        <div class="book-calendar">
+          <%= calendar number_of_days: 4, start_date_param: :my_date, partial: 'profiles/shared/booking_calendar_profile_show', events: @profile.timeslots.where(user_id: nil) do |date, timeslots| %>
+            <% if timeslots.empty? %>
+              <hr>
+            <% else %>
+              <% timeslots.sort_by!{ |t| t.from_time }.each do |timeslot| %>
+                <%= link_to booking_timeslot_path(timeslot) do %>
+                  <div class="button-timeslot" id="available">
+                    <%= timeslot.from_time.strftime('%H:%M') %>
+                  </div>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" id="profile-show-review">
+    <h2>Commentaires</h2>
+  </div>
 
 </div>
 
-<div class="container-1">
 
 
-</div>
-
-
-<div class="card-dashboard">
-  <h2>Créneaux disponibles</h2>
-  <ul class="mt-4">
-    <% if  @timeslots.empty?%>
-      <p>Pas de créneau displonible pour le moment</p>
-    <% else %>
-      <% @timeslots.each do |timeslot| %>
-       <li>
-        le <%= timeslot.date.strftime("%d/%m/%Y") %>
-        de <%= timeslot.from_time.strftime("%k:%M")  %>
-        à <%= timeslot.to_time.strftime("%k:%M") %>
-        <%= link_to "Reserver ce créneau", booking_timeslot_path(timeslot) %>
-      <% end %>
-
-    <% end %>
-  </ul>
-</div>
