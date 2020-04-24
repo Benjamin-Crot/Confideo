@@ -34,7 +34,7 @@
             <% else %>
               <% timeslots.sort_by!{ |t| t.from_time }.each do |timeslot| %>
                 <%= link_to booking_timeslot_path(timeslot) do %>
-                  <div class="button-timeslot">
+                  <div class="button-timeslot" id="available">
                     <%= timeslot.from_time.strftime('%H:%M') %>
                   </div>
                 <% end %>
