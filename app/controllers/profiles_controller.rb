@@ -39,6 +39,7 @@ class ProfilesController < ApplicationController
     @reasons = Reason.where(profile_id: @profile.id)
     @timeslots_free = @profile.timeslots.where(user_id: nil)
     @timeslots_booked = @profile.timeslots.where.not(user_id: nil)
+    @timeslots = @profile.timeslots
   end
 
   def calendar

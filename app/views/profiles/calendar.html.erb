@@ -23,8 +23,8 @@
           <% timeslots.each do |timeslot| %>
             <% if timeslot.user_id.nil? %>
               <div class="event bg-success">Disponible</div>
-            <% else %>
-              <div class="event bg-primary"><%= timeslot.user.first_name %></div>
+            <% elsif %>
+              <div class="event bg-primary"><%= timeslot.user.first_name %> <%= timeslot.from_time.strftime('%H:%M') %></div>
             <% end %>
           <% end %>
         </li>
