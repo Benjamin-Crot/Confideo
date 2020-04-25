@@ -85,8 +85,12 @@
       <%= link_to "Ajouter un type de cours", new_profile_reason_path(@profile), class: "btn-gradient" %>
     <% else %>
       <% @reasons.each do |reason| %>
+        <li>
         <%= reason.name %> -
         <%= reason.price %>€
+        </li>
+
+      </ol>
         <%= link_to "", edit_reason_path(reason), class: "far fa-edit" %>
         <%= link_to "", reason_path(reason), method: :delete, data: { confirm: "Êtes-vous sur ?" }, class: "fas fa-trash-alt" %>
       <% end %>

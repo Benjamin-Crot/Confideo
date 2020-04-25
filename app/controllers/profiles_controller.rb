@@ -21,6 +21,8 @@ class ProfilesController < ApplicationController
     @user = User.find(@profile.user_id)
     @timeslots = @profile.timeslots.where(user_id: nil)
     today = Date.today
+    @reasons = Reason.where(profile_id: @profile.id)
+
   end
 
 
@@ -28,8 +30,9 @@ class ProfilesController < ApplicationController
     if params[:query].present?
       @profiles = Profile.where("profession ILIKE ?", "%#{params[:query]}%")
     else
-      @profiles= Profile.all
+      @profiles = Profile.all
     end
+      @reasons = Reason.all
   end
 
   def dashboard
@@ -45,6 +48,8 @@ class ProfilesController < ApplicationController
   def calendar
     @profile = Profile.find(params[:id])
     @timeslots = @profile.timeslots
+    @reasons = Reason.where(profile_id: @profile.id)
+
   end
 
   private

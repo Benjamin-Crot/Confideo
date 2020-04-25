@@ -33,7 +33,6 @@
                 <%= profile.user.last_name %>
               </h5>
               <h6>
-                <%= profile.profession %>
               </h6>
             </div>
           </div>
@@ -63,3 +62,17 @@
       </div>
   <% end %>
 </div>
+
+
+
+
+
+
+<% @reasons.each do |reason| %>
+        <li>
+        <%= reason.name %> -
+        <%= reason.price %>€
+        </li>
+<% end %>
+
+

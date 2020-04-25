@@ -1,3 +1,4 @@
+<div class="containerprincial">
 <div class="banner-home" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= asset_path 'home2.jpg' %>);">
 <div class= "entete">
     <h2> Prenez rdv avec un professionnel à distance </h2>
@@ -17,33 +18,33 @@
     </div>
   </div>
 </div>
+
+
 <div class="container">
-  <div class="bloc-vp">
-    <div class="bloc-vp-cards justify-content-around">
-      <div class="card">
-        <%= link_to new_user_registration_path do %>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
           <%= image_tag 'yoga.jpg' %>
-        <% end %>
-<div class="choisissez">
-    <p>Choisissez le professionnel et ainsi que le créneau
-    qui vous convient</p>
-  </div>
+          <div class="choisissez">
+           <p>Choisissez le professionnel et ainsi que le créneau
+          qui vous convient</p>
+          </div>
+        </div>
       </div>
-       <div class="card">
-        <%= link_to profiles_path do %>
+      <div class="col-sm-6">
+        <div class="card">
         <%= image_tag 'video2.jpg' %>
-        <% end %>
-  <div class= "acces">
-    <p>Accédez à votre rendez vous le jour J</p>
-  </div>
+        <div class="acces">
+        <p>Accédez à votre rendez vous le jour J</p>
+        </div>
+        </div>
       </div>
     </div>
-  </div>
 </div>
-<br>
-<br>
-<br>
-<br>
+
+
+
+
 
 
 
