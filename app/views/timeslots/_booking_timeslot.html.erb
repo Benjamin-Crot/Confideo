@@ -1,0 +1,18 @@
+<div class="modal-header" id="header-modal-booking" style="background: #007bff; color: white;">
+  <h4 class="modal-title" id="myModalLabel">Quel est le motif de ce rendez-vous ?</h4>
+  <button type="button" class="close" data-dismiss="modal">x</button>
+</div>
+<div class="modal-body">
+  Rendez-vous le
+  <%= @timeslot.date.strftime('%d/%m/%Y') %>
+  à
+  <%= @timeslot.from_time.strftime('%H:%M') %>
+  avec
+  <%= @timeslot.profile.user.first_name %> <%= @timeslot.profile.user.last_name %>
+  <%= simple_form_for @timeslot do |f| %>
+    <%= f.input :reason_id, as: :select, label: false, collection: @timeslot.profile.reasons %>
+    <div class="modal-footer">
+      <%= f.submit "Confirmer", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

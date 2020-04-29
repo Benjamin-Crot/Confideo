@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :timeslots, only: [:index, :edit, :update, :destroy] do
     member do
       get 'booking'
+      get 'booking_timeslot'
     end
   end
 end
