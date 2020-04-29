@@ -20,6 +20,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     @user = User.find(@profile.user_id)
     @timeslots = @profile.timeslots.where(user_id: nil)
+    # @reasons = Reason.where(profile_id: @profile)
     today = Date.today
   end
 
