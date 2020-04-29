@@ -11,7 +11,6 @@ class TimeslotsController < ApplicationController
     if @timeslot.save
       redirect_to dashboard_profile_path(@profile)
     else
-      raise
       render :new
     end
   end
@@ -43,7 +42,6 @@ class TimeslotsController < ApplicationController
     @timeslot.user = current_user
 
 
-    raise
     @timeslot.save
     redirect_to profiles_path
 
