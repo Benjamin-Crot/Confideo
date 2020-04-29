@@ -53,15 +53,15 @@
       <div class="card-profile-show-booking">
         <div>
           <h5>Prenez votre rendez-vous en ligne</h5>
-
         </div>
+
         <div class="book-calendar">
           <%= calendar number_of_days: 4, start_date_param: :my_date, partial: 'profiles/shared/booking_calendar_profile_show', events: @profile.timeslots.where(user_id: nil) do |date, timeslots| %>
             <% if timeslots.empty? %>
               <hr>
             <% else %>
               <% timeslots.sort_by!{ |t| t.from_time }.each do |timeslot| %>
-                <%= link_to booking_timeslot_path(timeslot) do %>
+                <%= link_to booking_timeslot_timeslot_path(timeslot),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} do %>
                   <div class="button-timeslot" id="available">
                     <%= timeslot.from_time.strftime('%H:%M') %>
                   </div>
@@ -78,6 +78,14 @@
   </div>
 
 </div>
+
+<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+
 
 
 

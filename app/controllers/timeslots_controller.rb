@@ -23,15 +23,35 @@ class TimeslotsController < ApplicationController
   def update
     @timeslot = Timeslot.find(params[:id])
     @timeslot.user = current_user
-    @timeslot.update
-    # redirect_to availabilities_path
+    @timeslot.update(timeslot_params)
+    redirect_to root_path
+  end
+
+  def booking_timeslot
+
+    @timeslot = Timeslot.find(params[:id])
+    @timeslot.user = current_user
+    # @timeslot = Timeslot.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def booking
     @timeslot = Timeslot.find(params[:id])
     @timeslot.user = current_user
+
+
+    raise
     @timeslot.save
     redirect_to profiles_path
+
+    # raise
+    # @timeslot = Timeslot.find(params[:id])
+    # @timeslot.user = current_user
+    # @timeslot.save
+    # redirect_to profiles_path
   end
 
   def destroy
@@ -44,6 +64,6 @@ class TimeslotsController < ApplicationController
   private
 
   def timeslot_params
-    params.require(:timeslot).permit(:date, :from_time, :to_time)
+    params.require(:timeslot).permit(:date, :from_time, :to_time, :reason_id)
   end
 end
