@@ -6,6 +6,5 @@ class Profile < ApplicationRecord
 
   validates :profession, presence: true
   validates :description, presence: true
-
 end
 
